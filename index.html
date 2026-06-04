@@ -1,0 +1,1229 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>أماني محمد | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+:root {
+  --bg: #0a0e1a;
+  --bg2: #0f1525;
+  --bg3: #151d35;
+  --surface: #1a2540;
+  --surface2: #1f2d4a;
+  --accent: #00d4ff;
+  --accent2: #7c3aed;
+  --accent3: #10b981;
+  --gold: #f59e0b;
+  --text: #e8edf5;
+  --text2: #8fa3c0;
+  --text3: #4d6080;
+  --border: rgba(0,212,255,0.12);
+  --border2: rgba(0,212,255,0.25);
+  --r: 12px;
+  --r2: 20px;
+  --font: 'IBM Plex Sans Arabic', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── GRID NOISE BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(0,212,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124,58,237,0.07) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════
+   SIDEBAR
+══════════════════════════════ */
+.sidebar {
+  background: var(--bg2);
+  border-left: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 0;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  padding: 0 20px 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.sidebar-logo .logo-mark {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sidebar-logo .logo-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nav-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text3);
+  text-transform: uppercase;
+  padding: 0 20px;
+  margin-bottom: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.2s;
+  border-right: 3px solid transparent;
+  text-decoration: none;
+}
+.nav-item i { font-size: 17px; }
+.nav-item:hover {
+  color: var(--accent);
+  background: rgba(0,212,255,0.05);
+}
+.nav-item.active {
+  color: var(--accent);
+  border-right-color: var(--accent);
+  background: rgba(0,212,255,0.07);
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px;
+  border-top: 1px solid var(--border);
+}
+.sidebar-footer p {
+  font-size: 11px;
+  color: var(--text3);
+  text-align: center;
+  font-family: var(--mono);
+}
+
+/* ══════════════════════════════
+   MAIN CONTENT
+══════════════════════════════ */
+.main {
+  padding: 40px 48px;
+  max-width: 1100px;
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  margin-bottom: 72px;
+  animation: fadeUp 0.6s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section:nth-child(2) { animation-delay: 0.1s; }
+.section:nth-child(3) { animation-delay: 0.2s; }
+.section:nth-child(4) { animation-delay: 0.3s; }
+.section:nth-child(5) { animation-delay: 0.4s; }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  position: relative;
+  padding-bottom: 16px;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+/* ══════════════════════════════
+   SECTION 1 — HERO / WELCOME
+══════════════════════════════ */
+.hero {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: -40px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: var(--accent);
+  font-family: var(--mono);
+  margin-bottom: 16px;
+}
+.hero-badge span { width: 7px; height: 7px; background: var(--accent3); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-name {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.hero-name .en {
+  font-family: var(--mono);
+  font-size: 22px;
+  color: var(--accent);
+  font-weight: 600;
+  display: block;
+  margin-top: 4px;
+}
+
+.hero-role {
+  font-size: 15px;
+  color: var(--text2);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+.hero-role strong { color: var(--accent); font-weight: 600; }
+
+.hero-bio {
+  background: rgba(0,212,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.9;
+  margin-bottom: 28px;
+  border-right: 3px solid var(--accent);
+}
+.hero-bio strong { color: var(--text); }
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ql-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: var(--r);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid;
+}
+.ql-btn.primary {
+  background: var(--accent);
+  color: #0a0e1a;
+  border-color: var(--accent);
+}
+.ql-btn.primary:hover { background: #00b8d9; }
+.ql-btn.secondary {
+  background: transparent;
+  color: var(--text2);
+  border-color: var(--border2);
+}
+.ql-btn.secondary:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.05); }
+.ql-btn.gold {
+  background: rgba(245,158,11,0.1);
+  color: var(--gold);
+  border-color: rgba(245,158,11,0.3);
+}
+.ql-btn.gold:hover { background: rgba(245,158,11,0.18); }
+
+/* PROFILE CARD (right side) */
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r2);
+  padding: 24px 20px;
+  text-align: center;
+  min-width: 180px;
+}
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 auto 14px;
+  font-family: var(--mono);
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.2);
+}
+.profile-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.profile-card .uni {
+  font-size: 11.5px;
+  color: var(--text2);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.profile-stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.profile-stat span:first-child { color: var(--text3); }
+.profile-stat span:last-child { color: var(--accent); font-weight: 600; font-family: var(--mono); }
+.status-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--accent3);
+  background: rgba(16,185,129,0.08);
+  border-radius: 99px;
+  padding: 5px 10px;
+}
+.status-dot::before { content:''; width:6px; height:6px; background:var(--accent3); border-radius:50%; animation:pulse 2s infinite; }
+
+/* ══════════════════════════════
+   SECTION 2 — CERTIFICATIONS & TECH
+══════════════════════════════ */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.cert-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 22px 20px;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.cert-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  opacity: 0.06;
+  transition: all 0.3s;
+}
+.cert-card.blue::after { background: #3b82f6; }
+.cert-card.purple::after { background: var(--accent2); }
+.cert-card.green::after { background: var(--accent3); }
+.cert-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+.cert-card:hover::after { opacity: 0.12; transform: scale(1.3); }
+
+.cert-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.cert-card h4 {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.cert-card p {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.cert-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  font-family: var(--mono);
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid;
+}
+.cert-tag.target { color: var(--gold); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.07); }
+.cert-tag.active { color: var(--accent3); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.07); }
+
+/* TECH STACK */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--text2);
+  font-family: var(--mono);
+  transition: all 0.2s;
+  cursor: default;
+}
+.tech-pill i { font-size: 16px; }
+.tech-pill:hover { border-color: var(--accent); color: var(--text); background: var(--surface2); }
+.tech-pill.py:hover { border-color: #3b82f6; }
+.tech-pill.sql:hover { border-color: var(--gold); }
+.tech-pill.win:hover { border-color: #0078d4; }
+.tech-pill.sec:hover { border-color: #ef4444; }
+
+/* ══════════════════════════════
+   SECTION 3 — DIGITAL STORE
+══════════════════════════════ */
+.product-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  overflow: hidden;
+}
+.product-header {
+  background: linear-gradient(135deg, #0f1a35 0%, #1a1040 100%);
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.product-header::before {
+  content: 'SY0-701';
+  position: absolute;
+  top: 50%; right: -10px;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 80px;
+  font-weight: 700;
+  color: rgba(0,212,255,0.04);
+  letter-spacing: -4px;
+  user-select: none;
+}
+.product-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(124,58,237,0.2);
+  border: 1px solid rgba(124,58,237,0.4);
+  color: #a78bfa;
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-family: var(--mono);
+  margin-bottom: 12px;
+}
+.product-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.product-header p {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.product-body { padding: 28px 32px; }
+
+/* DOMAIN CHART */
+.domains-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.domains-title::before { content:''; flex:1; height:1px; background:var(--border); }
+
+.domain-row {
+  display: grid;
+  grid-template-columns: 1fr auto 80px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.domain-name { font-size: 13px; color: var(--text2); }
+.domain-pct {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+.domain-bar {
+  height: 6px;
+  background: var(--surface);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.domain-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 1s ease;
+}
+.d1 { color: #60a5fa; } .d1 .domain-fill { background: #60a5fa; }
+.d2 { color: #a78bfa; } .d2 .domain-fill { background: #a78bfa; }
+.d3 { color: var(--accent3); } .d3 .domain-fill { background: var(--accent3); }
+.d4 { color: var(--gold); } .d4 .domain-fill { background: var(--gold); }
+.d5 { color: #f87171; } .d5 .domain-fill { background: #f87171; }
+
+/* SAMPLE TOGGLE */
+.sample-toggle {
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.toggle-header {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.toggle-header:hover { background: var(--surface2); }
+.toggle-header span {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toggle-icon { font-size: 18px; color: var(--text3); transition: transform 0.3s; }
+.toggle-icon.open { transform: rotate(180deg); }
+.toggle-body {
+  display: none;
+  padding: 20px;
+  border-top: 1px solid var(--border);
+}
+.toggle-body.open { display: block; }
+
+.q-scenario {
+  background: rgba(0,212,255,0.04);
+  border: 1px solid var(--border);
+  border-right: 3px solid var(--accent);
+  border-radius: var(--r);
+  padding: 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text2);
+  font-style: italic;
+}
+.q-answer {
+  background: rgba(16,185,129,0.05);
+  border: 1px solid rgba(16,185,129,0.2);
+  border-right: 3px solid var(--accent3);
+  border-radius: var(--r);
+  padding: 16px;
+}
+.q-answer h5 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent3);
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  letter-spacing: 1px;
+}
+.q-answer p {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.9;
+}
+.q-answer .keyword {
+  background: rgba(0,212,255,0.1);
+  color: var(--accent);
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.buy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 15px 28px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--r);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-family: var(--font);
+}
+.buy-btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,255,0.2); }
+.buy-btn i { font-size: 20px; }
+
+/* ══════════════════════════════
+   SECTION 4 — PROJECTS
+══════════════════════════════ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.project-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 24px;
+  transition: all 0.25s;
+}
+.project-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.project-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+.project-icon.cyan { background: rgba(0,212,255,0.1); color: var(--accent); }
+.project-icon.purple { background: rgba(124,58,237,0.1); color: #a78bfa; }
+.project-icon.green { background: rgba(16,185,129,0.1); color: var(--accent3); }
+.project-icon.gold { background: rgba(245,158,11,0.1); color: var(--gold); }
+.project-status {
+  font-size: 11px;
+  font-family: var(--mono);
+  padding: 3px 10px;
+  border-radius: 99px;
+}
+.project-status.active { background: rgba(16,185,129,0.1); color: var(--accent3); border: 1px solid rgba(16,185,129,0.25); }
+.project-status.wip { background: rgba(245,158,11,0.1); color: var(--gold); border: 1px solid rgba(245,158,11,0.25); }
+.project-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.project-card p {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ptag {
+  font-size: 11px;
+  font-family: var(--mono);
+  padding: 3px 9px;
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--text3);
+  border: 1px solid var(--border);
+}
+
+/* ══════════════════════════════
+   SECTION 5 — BLOG
+══════════════════════════════ */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.blog-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.blog-card:hover { border-color: var(--border2); background: var(--surface); }
+.blog-num {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--border2);
+  line-height: 1;
+  min-width: 32px;
+  text-align: center;
+}
+.blog-card:hover .blog-num { color: var(--accent); }
+.blog-cat {
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.blog-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+.blog-card p {
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.blog-meta {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+.blog-date {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--mono);
+}
+.blog-arrow {
+  font-size: 18px;
+  color: var(--text3);
+  transition: all 0.2s;
+}
+.blog-card:hover .blog-arrow { color: var(--accent); transform: translateX(-4px); }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.divider .line { flex: 1; height: 1px; background: var(--border); }
+.divider .dot {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .main { padding: 24px 20px; }
+  .hero { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .blog-card { grid-template-columns: auto 1fr; }
+  .blog-meta { display: none; }
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+<!-- ══════════════════════════
+     SIDEBAR
+══════════════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">Kunh Tech</div>
+    <div class="logo-name">أماني محمد</div>
+  </div>
+
+  <div class="nav-label">التنقل</div>
+
+  <a class="nav-item active" href="#hero">
+    <i class="ti ti-layout-dashboard"></i> لوحة التحكم
+  </a>
+  <a class="nav-item" href="#skills">
+    <i class="ti ti-shield-check"></i> المهارات والشهادات
+  </a>
+  <a class="nav-item" href="#store">
+    <i class="ti ti-shopping-bag"></i> المتجر الرقمي
+  </a>
+  <a class="nav-item" href="#projects">
+    <i class="ti ti-code"></i> المشاريع العملية
+  </a>
+  <a class="nav-item" href="#blog">
+    <i class="ti ti-article"></i> مدونة كنه تك
+  </a>
+
+  <br/>
+  <div class="nav-label">تواصل</div>
+
+  <a class="nav-item" href="mumu2272@gotmail.com">
+    <i class="ti ti-mail"></i> البريد الإلكتروني
+  </a>
+  <a class="nav-item" href="https://www.linkedin.com/in/amanimohammad-cyber/">
+    <i class="ti ti-brand-linkedin"></i> لينكد إن
+  </a>
+  <a class="nav-item" href="#">
+    <i class="ti ti-shere"></i>🔗روابط التواصل 
+  </a>
+
+  <div class="sidebar-footer">
+    <p>© 2025 Kunh Tech<br/>Amani Mohammad</p>
+  </div>
+</aside>
+
+<!-- ══════════════════════════
+     MAIN
+══════════════════════════ -->
+<main class="main">
+
+  <!-- ════════════════════════
+       SECTION 1 — HERO
+  ════════════════════════ -->
+  <section class="section" id="hero">
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span></span>
+          متاحة للفرص التقنية 
+        </div>
+
+        <h2 class="hero-name">
+          أماني محمد
+      
+        </h2>
+
+        <p class="hero-role">
+          <strong> أمن سيبراني | تسويق رقمي</strong><br/>
+          Cybersecurity & Digital Marketing 
+        </p>
+
+        <div class="hero-bio">
+         اهلا اهلا  في مساحتي التقنية! أنا أماني ، أمن سيبراني ورائدة أعمال رقمية. تجمعني رحلة شغف عميقة بالشبكات والبرمجة، وبناء الحلول التي تبسط المعقد.
+
+هنا، أحوّل هذا الشغف التقني إلى تجربة عملية؛ عبر ابتكار وصناعة مواد تعليمية تفاعلية، صُممت خصيصاً لتأخذ بيدك وتسهل عليك اجتياز الشهادات المهنية الاحترافية بكل ثقة! مع إثراء مجتمعنا العربي بالمعرفة من خلال مدونتي (كنه تك).
+
+أتمنى لك رحلة ملهمة وجولة ممتعة 
+        </div>
+
+        <div class="quick-links">
+          <a class="ql-btn primary" href="https://kunhtech.blogspot.com/">
+            <i class="ti ti-world"></i> مدونة كنه تك 🌐
+          </a>
+          <a class="ql-btn gold" href="#">
+            <i class="ti ti-shopping-cart"></i> متجر الشهادات الاحترافية 🛒
+          </a>
+          <a class="ql-btn secondary" href="#">
+            <i class="ti ti-mail"></i> توصيات كنة تك التقنية امازون
+          </a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-avatar"> 
+          <img src="شعاري التقني.png" alt="شعار كنه تك" style="width:100%; height:100%; border-radius:50%; object-fit: cover;"> 
+        </div>
+        
+        <p class="uni">جامعة ميد أوشن<br/>أمن سيبراني + تحليل بيانات</p>
+        <div class="profile-stat">
+          <span>الموقع</span>
+          <span>🌍 السعودية - جدة</span>
+        </div>
+        <div class="profile-stat">
+          <span>المهارة</span>
+          <span>Security+</span>
+        </div>
+        <div class="profile-stat">
+          <span>المشاريع</span>
+          <span>7+</span>
+        </div>
+        <div class="profile-stat">
+          <span>المقالات</span>
+          <span>23+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════
+       SECTION 2 — SKILLS & CERTS
+  ════════════════════════ -->
+  <section class="section" id="skills">
+    <h2 class="section-title">المهارات والشهادات التقنية</h2>
+
+    <div class="cert-grid">
+      <div class="cert-card blue">
+        <div class="cert-icon">🛡️</div>
+        <h4>CompTIA Security+</h4>
+        <p>شهادة الأمن السيبراني الأساسية SY0-701 — تغطي التهديدات، العمليات الأمنية، والبنية التحتية.</p>
+        <span class="cert-tag target">🎯 مستهدفة 2026</span>
+      </div>
+      <div class="cert-card purple">
+        <div class="cert-icon">🌐</div>
+        <h4>Cisco CCNA</h4>
+        <p>شهادة الشبكات الاحترافية من سيسكو — تغطي الشبكات، التوجيه، التبديل، وبروتوكولات IP.</p>
+        <span class="cert-tag target">🎯 مخططة</span>
+      </div>
+      <div class="cert-card green">
+        <div class="cert-icon">📊</div>
+        <h4>Google Data Analytics</h4>
+        <p>Professional Certificate من Google — تغطي تحليل البيانات، SQL، R، وتصور البيانات.</p>
+        <span class="cert-tag active">✅  تم الانتهاء</span>
+      </div>
+    </div>
+
+    <div class="divider"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+
+    <div class="tech-grid">
+      <div class="tech-pill py"><i class="ti ti-brand-python"></i> Python</div>
+      <div class="tech-pill sql"><i class="ti ti-database"></i> SQL</div>
+      <div class="tech-pill win"><i class="ti ti-brand-windows"></i> Windows 11 Pro</div>
+      <div class="tech-pill win"><i class="ti ti-server"></i> Hyper-V</div>
+      <div class="tech-pill win"><i class="ti ti-box"></i> Windows Sandbox</div>
+      <div class="tech-pill sec"><i class="ti ti-shield"></i> Nmap</div>
+      <div class="tech-pill sec"><i class="ti ti-bug"></i> Vulnerability Analysis</div>
+      <div class="tech-pill"><i class="ti ti-chart-bar"></i> Data Visualization</div>
+      <div class="tech-pill"><i class="ti ti-network"></i> Networking Fundamentals</div>
+      <div class="tech-pill"><i class="ti ti-file-spreadsheet"></i> Excel / Sheets</div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════
+       SECTION 3 — DIGITAL STORE
+  ════════════════════════ -->
+  <section class="section" id="store">
+    <h2 class="section-title">المتجر الرقمي والمنتجات</h2>
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-tag">
+          <i class="ti ti-shield-check"></i>
+          CompTIA Security+ · SY0-701
+        </div>
+        <h3>الحقيبة الشاملة لأسئلة سيناريوهات<br/>CompTIA Security+ (SY0-701)</h3>
+        <p>حقيبة تدريبية متكاملة بالعربي — تغطي جميع المحاور الخمسة بأسئلة سيناريو واقعية مع شروح تفاعلية مفصلة وكلمات دالة تُساعدك على الإجابة الصحيحة في الامتحان الحقيقي.</p>
+      </div>
+
+      <div class="product-body">
+
+        <div class="domains-title">توزيع المحاور والأوزان</div>
+
+        <div class="domain-row d1">
+          <span class="domain-name">Domain 1 — General Security Concepts</span>
+          <span class="domain-pct">12%</span>
+          <div class="domain-bar"><div class="domain-fill" style="width:12%"></div></div>
+        </div>
+        <div class="domain-row d2">
+          <span class="domain-name">Domain 2 — Threats, Vulnerabilities & Mitigations</span>
+          <span class="domain-pct">22%</span>
+          <div class="domain-bar"><div class="domain-fill" style="width:22%"></div></div>
+        </div>
+        <div class="domain-row d3">
+          <span class="domain-name">Domain 3 — Security Architecture</span>
+          <span class="domain-pct">18%</span>
+          <div class="domain-bar"><div class="domain-fill" style="width:18%"></div></div>
+        </div>
+        <div class="domain-row d4">
+          <span class="domain-name">Domain 4 — Security Operations ⭐</span>
+          <span class="domain-pct">28%</span>
+          <div class="domain-bar"><div class="domain-fill" style="width:28%"></div></div>
+        </div>
+        <div class="domain-row d5">
+          <span class="domain-name">Domain 5 — Security Program Management</span>
+          <span class="domain-pct">20%</span>
+          <div class="domain-bar"><div class="domain-fill" style="width:20%"></div></div>
+        </div>
+
+        <!-- SAMPLE QUESTION TOGGLE -->
+        <div class="sample-toggle">
+          <div class="toggle-header" onclick="toggleSample(this)">
+            <span><i class="ti ti-eye"></i> عاين عينة مجانية من الأسئلة</span>
+            <i class="ti ti-chevron-down toggle-icon"></i>
+          </div>
+          <div class="toggle-body">
+            <p style="font-size:11px; color:var(--text3); font-family:var(--mono); margin-bottom:14px; text-transform:uppercase; letter-spacing:1.5px;">Sample Question — Domain 4 · Security Operations</p>
+
+            <div class="q-scenario">
+              "A security analyst is reviewing logs and notices that a user account that was disabled three months ago is still generating authentication attempts against internal systems every hour, on the hour. The analyst confirms the account has no active sessions. Which of the following BEST describes this activity, and what should the analyst do FIRST?"
+            </div>
+
+            <div class="q-answer">
+              <h5>✅ الشرح التفاعلي بالعربي</h5>
+              <p>
+                🔑 الكلمات الدالة: <span class="keyword">disabled account</span> + <span class="keyword">authentication attempts</span> + <span class="keyword">scheduled / every hour</span>
+                <br/><br/>
+                💡 <strong>التشخيص:</strong> هذا النشاط يشير إلى وجود <span class="keyword">scheduled task</span> أو <span class="keyword">script</span> مبرمج يستخدم credentials الحساب المعطل — وهو نمط شائع في هجمات <span class="keyword">persistence</span>.
+                <br/><br/>
+                🎯 <strong>الإجابة الصحيحة:</strong> يجب على المحلل أولاً <span class="keyword">isolate</span> المصدر وتحديد الـ system التي تُولِّد هذه المحاولات، ثم فحصها بحثاً عن <span class="keyword">malware</span> أو مهام مجدولة غير مصرح بها.
+              </p>
+            </div>
+          </div>
+        </div>
+
+       <a class="buy-btn" href="#" target="_blank">
+    <i class="ti ti-shopping-cart"></i> اشتر الحقيبة الرقمية الآن عبر متجر الشهادات الاحترافية 🛒
+</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════
+       SECTION 4 — PROJECTS
+  ════════════════════════ -->
+  <section class="section" id="projects">
+    <h2 class="section-title">المعرض العملي والمشاريع</h2>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon cyan"><i class="ti ti-robot"></i></div>
+          <span class="project-status active">نشط</span>
+        </div>
+        <h4>أتمتة نشر المقالات التقنية</h4>
+        <p>سكريبت Python يُؤتمت عملية تنسيق ونشر المقالات التقنية على مدونة كنه تك — يتضمن فحص الروابط، إضافة الميتاداتا، وجدولة النشر تلقائياً.</p>
+        <div class="project-tags">
+          <span class="ptag">Python</span>
+          <span class="ptag">Automation</span>
+          <span class="ptag">Blog</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon purple"><i class="ti ti-brain"></i></div>
+          <span class="project-status active">نشط</span>
+        </div>
+        <h4>خطط المذاكرة الذكية — Security+</h4>
+        <p>أداة تفاعلية تُولِّد خطط مذاكرة مخصصة لشهادة CompTIA Security+ بناءً على المحاور الضعيفة للمستخدم ومدة التحضير المتاحة.</p>
+        <div class="project-tags">
+          <span class="ptag">Python</span>
+          <span class="ptag">SY0-701</span>
+          <span class="ptag">Study Planner</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon green"><i class="ti ti-shield-search"></i></div>
+          <span class="project-status wip">قيد التطوير</span>
+        </div>
+        <h4>لوحة إدارة الثغرات</h4>
+        <p>داشبورد لتتبع وتصنيف الثغرات الأمنية وفق منهجية CVSS — يعرض الأولويات والتوصيات العلاجية بشكل بصري واضح.</p>
+        <div class="project-tags">
+          <span class="ptag">SQL</span>
+          <span class="ptag">CVSS</span>
+          <span class="ptag">Dashboard</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon gold"><i class="ti ti-chart-dots"></i></div>
+          <span class="project-status active">نشط</span>
+        </div>
+        <h4>تحليل بيانات أسئلة الشهادات</h4>
+        <p>تحليل إحصائي لبيانات أسئلة الشهادات التقنية لاستخراج الأنماط المتكررة وتحديد المحاور الأعلى احتمالاً في الامتحانات الحقيقية.</p>
+        <div class="project-tags">
+          <span class="ptag">Data Analysis</span>
+          <span class="ptag">SQL</span>
+          <span class="ptag">Python</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════
+       SECTION 5 — BLOG
+  ════════════════════════ -->
+  <section class="section" id="blog">
+    <h2 class="section-title">أحدث مقالات مدونة كنه تك</h2>
+
+    <div class="blog-list">
+
+      <div class="blog-card" onclick="">
+        <div class="blog-num">01</div>
+        <div>
+          <div class="blog-cat">Security+ · SY0-701</div>
+          <h4>Domain 4 كاملاً: كيف تتعامل مع سيناريوهات Security Operations في الامتحان؟</h4>
+          <p>دليل شامل لفهم منهجية التفكير الصحيحة عند مواجهة أسئلة السيناريو في المحور الأثقل وزناً (28%) في الامتحان.</p>
+        </div>
+        <div class="blog-meta">
+          <span class="blog-date">2025-05-20</span>
+          <i class="ti ti-arrow-left blog-arrow"></i>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="">
+        <div class="blog-num">02</div>
+        <div>
+          <div class="blog-cat">Networking · CCNA</div>
+          <h4>الفرق بين VLAN و Subnet وكيف يؤثران على الأمن السيبراني؟</h4>
+          <p>شرح مبسط بالأمثلة العملية لمفهومين يُربك الكثير من المبتدئين — مع ربطهما بتطبيقات الأمن الحقيقية.</p>
+        </div>
+        <div class="blog-meta">
+          <span class="blog-date">2025-05-14</span>
+          <i class="ti ti-arrow-left blog-arrow"></i>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="">
+        <div class="blog-num">03</div>
+        <div>
+          <div class="blog-cat">Data Analysis · Google Certificate</div>
+          <h4>كيف يستخدم محلل البيانات SQL في تحليل سجلات الأمن السيبراني؟</h4>
+          <p>نقطة التقاطع بين تحليل البيانات والأمن السيبراني — استعلامات SQL عملية لتحليل الـ logs واكتشاف الأنماط الشاذة.</p>
+        </div>
+        <div class="blog-meta">
+          <span class="blog-date">2025-05-08</span>
+          <i class="ti ti-arrow-left blog-arrow"></i>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="">
+        <div class="blog-num">04</div>
+        <div>
+          <div class="blog-cat">Windows · Virtualization</div>
+          <h4>بيئة المختبر المثالية للتحضير لـ Security+: Hyper-V + Windows Sandbox</h4>
+          <p>دليل خطوة بخطوة لبناء بيئة تدريب آمنة ومعزولة باستخدام ميزات Windows 11 Pro المدمجة — مجاناً بدون برامج خارجية.</p>
+        </div>
+        <div class="blog-meta">
+          <span class="blog-date">2025-04-29</span>
+          <i class="ti ti-arrow-left blog-arrow"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:24px;">
+      <a class="ql-btn secondary" href="#" style="display:inline-flex;">
+        <i class="ti ti-arrow-left"></i> عرض جميع المقالات في كنه تك
+      </a>
+    </div>
+  </section>
+
+</main><!-- /main -->
+</div><!-- /page-wrap -->
+
+<script>
+function toggleSample(header) {
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  icon.classList.toggle('open', !isOpen);
+}
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav-item[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navItems.forEach(n => {
+    n.classList.toggle('active', n.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+
+</body>
+</html>
+
+
+
